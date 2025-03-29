@@ -1,0 +1,11 @@
+num = int(input("Insira um número ímpar: "))
+
+if num % 2 != 0:
+
+    quadrado_anterior = (num - 2)**2
+    quadrado_proximo = (num + 2)**2
+    diferenca= quadrado_anterior - quadrado_proximo
+    print("A diferença é: ", diferenca)
+
+else:
+    print("O número não é ímpar")
