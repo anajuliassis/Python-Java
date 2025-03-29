@@ -1,0 +1,19 @@
+aluguel = int(input("Insira os dias que foi alugado: "))
+quilometros = float(input("Insira os quilômetros rodados: "))
+
+diaria = 90
+
+valor_aluguel = aluguel * diaria
+
+taxa = 0
+
+if quilometros > 100:
+    km_extra= quilometros - 100
+    taxa= km_extra * 12
+    print("A cada KM excedido será pago  uma taxa de R$ 12: ", taxa)
+
+else: 
+    print("Não haverá taxa extra")
+
+valor_total = (valor_aluguel + taxa)
+print("O valor total será de: ", valor_total)
