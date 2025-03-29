@@ -1,0 +1,10 @@
+salario = float(input("Insira um salário: "))
+ano= int(input("Insira a quantidade de anos trabalhados: "))
+
+aumento= 0.010
+
+for i in range (ano):
+    salario_aumento = salario * aumento
+    aumento *= 2
+
+print("O salário depois do aumento fica: ", salario_aumento)
