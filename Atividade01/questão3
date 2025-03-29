@@ -1,0 +1,9 @@
+valor_total= float(input("Insira o valor total das mercadorias: "))
+
+if valor_total <= 500:
+    print("Não há impostos")
+
+else:
+    impostos = ((valor_total - 500)* 0.05)
+    print("O valor do imposto cobrado será", impostos)
+    
