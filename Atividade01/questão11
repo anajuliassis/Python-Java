@@ -1,0 +1,8 @@
+usuario = input("Insira um usuário: ")
+senha = input("Insira uma senha: ")
+
+if senha == usuario:
+    print("Inválido")
+
+else:
+    print("Cadastro concluído!") 
