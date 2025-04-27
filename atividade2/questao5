@@ -1,0 +1,54 @@
+import json
+import os
+
+arquivo = "contatos.json"
+
+def carregar_contatos():
+	if os.path.exists(arquivo):
+		with open(arquivo, "r") as f:
+			return json.load(f)
+	return []
+
+def salvar_contatos():
+	with open(arquivo, "w") as f:
+		json.dump(lista_de_contatos, f)
+
+lista_de_contatos = carregar_contatos()
+
+def adicionar_contato(nome, telefone, email):
+    for contato in lista_de_contatos:
+        if contato["nome"].lower() == nome.lower():
+            print("Já existe um contato com esse nome.")
+            return
+    lista_de_contatos.append({"nome": nome, "telefone": telefone, "email": email})
+    salvar_contatos()
+    print(f"Contato {nome} adicionado com sucesso!")
+
+def mostrar_contatos():
+	for contato in lista_de_contatos:
+		print(contato["nome"], contato["telefone"], contato["email"])
+
+def buscar_contato(nome_busca):
+    encontrados = []
+    for contato in lista_de_contatos:
+        if nome_busca.lower() in contato["nome"].lower():
+            encontrados.append(contato)
+    if encontrados:
+        print("Contatos encontrados:")
+        for contato in encontrados:
+            print(f"{contato['nome']} | {contato['telefone']} | {contato['email']}")
+    else:
+        print(f"Nenhum contato encontrado com o nome {nome_busca}.")
+
+while True:
+	nome = input("Insira o nome: ")
+	telefone = input("Insira o telefone: ")
+	email = input("Insira o email: ")
+	adicionar_contato(nome, telefone, email)
+	if input("Há algum contato que queira adicionar (s/n)? ") != "s":
+		break
+
+mostrar_contatos()
+
+nome_busca = input("Insira o nome do usuário que quer procurar: ")
+buscar_contato(nome_busca)
